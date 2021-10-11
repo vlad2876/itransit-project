@@ -9,6 +9,9 @@ export default function NaviBar() {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link>Home</Nav.Link>
+                    <Nav.Link>Admin Page</Nav.Link>
+                    <Nav.Link>Create Task</Nav.Link>
+                    <Nav.Link>Profile</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
