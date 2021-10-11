@@ -14,13 +14,19 @@ firebase.initializeApp({
     appId: "1:383979156170:web:aafa8bbc1f382e8986ba33",
     measurementId: "G-T79FR0EZV1"});
 
-const Context = createContext(null)
+export const Context = createContext(null)
 
 const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 ReactDOM.render(
-    <App />,
+    <Context.Provider value={{
+        firebase,
+        auth,
+        firestore
+    }}>
+        <App />
+    </Context.Provider>,
   document.getElementById('root')
 );
 
