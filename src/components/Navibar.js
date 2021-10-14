@@ -20,28 +20,21 @@ export default function NaviBar() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    {user ?
-                        <>
-                            <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
-                            <Nav.Link href={CREATE_TASK_ROUTE}>Create Task</Nav.Link>
-                            <Nav.Link href={PROFILE_ROUTE}>Profile</Nav.Link>
-                        </>
-                        :
-                        <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
-
-                    }
-                </Nav>
-                <Nav>
-                    {user ?
-                        <Button onClick={() => auth.signOut()}>Logout</Button>
-                        :
-                        <>
-                            <Button onClick={() => handleOnClick(facebookProvider)} className="mr-5">Facebook</Button>
-                            <Button onClick={() => handleOnClick(googleProvider)}>Google</Button>
-                        </>
-                    }
+                    <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
+                    <Nav.Link href={CREATE_TASK_ROUTE}>Create Task</Nav.Link>
+                    <Nav.Link href={PROFILE_ROUTE}>Profile</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
+            <Nav>
+                {user ?
+                    <Button onClick={() => auth.signOut()}>Logout</Button>
+                    :
+                    <>
+                        <Button onClick={() => handleOnClick(facebookProvider)}>Facebook</Button>
+                        <Button onClick={() => handleOnClick(googleProvider)}>Google</Button>
+                    </>
+                }
+            </Nav>
         </Navbar>
 
     )
