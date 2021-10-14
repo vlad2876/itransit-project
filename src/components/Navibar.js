@@ -22,14 +22,13 @@ export default function NaviBar() {
                 <Nav className="mr-auto">
                     {user ?
                         <>
-                    <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
-                    <Nav.Link href={CREATE_TASK_ROUTE}>Create Task</Nav.Link>
-                    <Nav.Link href={PROFILE_ROUTE}>Profile</Nav.Link>
+                            <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
+                            <Nav.Link href={CREATE_TASK_ROUTE}>Create Task</Nav.Link>
+                            <Nav.Link href={PROFILE_ROUTE}>Profile</Nav.Link>
                         </>
                         :
-                        <>
                         <Nav.Link href={HOMEPAGE_ROUTE}>Home</Nav.Link>
-                        </>
+
                     }
                 </Nav>
                 <Nav>
@@ -37,8 +36,8 @@ export default function NaviBar() {
                         <Button onClick={() => auth.signOut()}>Logout</Button>
                         :
                         <>
-                        <Button onClick={() => handleOnClick(facebookProvider)}>Facebook</Button>
-                        <Button onClick={() => handleOnClick(googleProvider)}>Google</Button>
+                            <Button onClick={() => handleOnClick(facebookProvider)} className="mr-5">Facebook</Button>
+                            <Button onClick={() => handleOnClick(googleProvider)}>Google</Button>
                         </>
                     }
                 </Nav>
