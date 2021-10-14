@@ -30,8 +30,8 @@ export default function NaviBar() {
                     <Button variant="danger" onClick={() => auth.signOut()} className="me-2">Logout</Button>
                     :
                     <>
-                        <Button variant="outline-primary" onClick={() => handleOnClick(facebookProvider)} className="me-2">Facebook</Button>
-                        <Button variant="outline-warning" onClick={() => handleOnClick(googleProvider)} className="me-2">Google</Button>
+                        <Button variant="primary" onClick={() => handleOnClick(facebookProvider)} className="me-2">Facebook</Button>
+                        <Button variant="warning" onClick={() => handleOnClick(googleProvider)} className="me-2">Google</Button>
                     </>
                 }
             </Nav>
