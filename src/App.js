@@ -10,12 +10,6 @@ import "./App.css"
 
 function App() {
 
-    const {auth} = useContext(Context)
-    const [user, loading, error] = useAuthState(auth)
-
-    if (loading) {
-        return <Spinner className={"spinner"} animation="grow" />
-    }
     return (
         <BrowserRouter>
             <NaviBar/>
