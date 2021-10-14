@@ -6,6 +6,7 @@ import React, {useContext} from "react";
 import {Context} from "./index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Spinner} from "react-bootstrap";
+import "./App.css"
 
 function App() {
 
@@ -13,10 +14,7 @@ function App() {
     const [user, loading, error] = useAuthState(auth)
 
     if (loading) {
-
-        return <Spinner animation="grow" />
-
-
+        return <Spinner className={"spinner"} animation="grow" />
     }
     return (
         <BrowserRouter>
