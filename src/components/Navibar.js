@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Navbar, Nav, Button} from "react-bootstrap";
 import {ADMIN_ROUTE, CREATE_TASK_ROUTE, HOMEPAGE_ROUTE, PROFILE_ROUTE} from "../utils/consts";
 import {facebookProvider, googleProvider} from "../config/authMethods";
@@ -6,7 +6,8 @@ import socialMediaAuth from "../service/auth";
 
 export default function NaviBar() {
     const handleOnClick = async (provider) => {
-        const res = await socialMediaAuth(provider)
+        const user = await socialMediaAuth(provider)
+        console.log(user)
     };
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
