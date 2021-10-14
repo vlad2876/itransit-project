@@ -26,21 +26,3 @@ export const privateRoutes = [
     }
 ]
 
-export const adminRoutes = [
-    {
-        path: HOMEPAGE_ROUTE,
-        Component: HomePage
-    },
-    {
-        path: PROFILE_ROUTE,
-        Component: Profile
-    },
-    {
-        path: CREATE_TASK_ROUTE,
-        Component: CreateTask
-    },
-    {
-        path: ADMIN_ROUTE,
-        Component: Admin
-    }
-]
