@@ -27,11 +27,11 @@ export default function NaviBar() {
             </Navbar.Collapse>
             <Nav>
                 {user ?
-                    <Button onClick={() => auth.signOut()} className="me-2">Logout</Button>
+                    <Button variant="danger" onClick={() => auth.signOut()} className="me-2">Logout</Button>
                     :
                     <>
-                        <Button onClick={() => handleOnClick(facebookProvider)} className="me-2">Facebook</Button>
-                        <Button onClick={() => handleOnClick(googleProvider)} className="me-2">Google</Button>
+                        <Button variant="outline-primary" onClick={() => handleOnClick(facebookProvider)} className="me-2">Facebook</Button>
+                        <Button variant="outline-warning" onClick={() => handleOnClick(googleProvider)} className="me-2">Google</Button>
                     </>
                 }
             </Nav>
