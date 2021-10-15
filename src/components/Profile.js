@@ -15,7 +15,7 @@ const Profile = () => {
             <div>
                 <div className="d-flex align-items-center justify-content-start">
                     <img className="avatar" src={user.photoURL}/>
-                    <h2 className="ms-3">{user.displayName}</h2>
+                    <h3 className="ms-3">{user.displayName}</h3>
                 </div>
                 <Table striped bordered hover className="w-50 mt-4">
                     <thead>
