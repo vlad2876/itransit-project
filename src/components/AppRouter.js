@@ -9,7 +9,6 @@ import {HOMEPAGE_ROUTE, PROFILE_ROUTE} from "../utils/consts";
 const AppRouter = () => {
     const {auth} = useContext(Context)
     const [user] = useAuthState(auth)
-    console.log(user)
     return user ?
         (
             <Switch>

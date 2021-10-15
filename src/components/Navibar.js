@@ -13,7 +13,6 @@ export default function NaviBar() {
     const handleOnClick = async (provider) => {
         auth = await socialMediaAuth(provider)
     };
-    console.log(user)
     return (
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
