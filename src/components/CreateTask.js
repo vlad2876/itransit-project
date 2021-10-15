@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import firebase from "../config/firebase-config";
+import Select from "react-select";
 
 
 const CreateTask = () => {
-    const [theme, setTheme] = useState()
+    let [theme, setTheme] = useState()
     const [title, setTitle] = useState()
     const [tags, setTags] = useState()
     const [task, setTask] = useState()
@@ -12,10 +13,8 @@ const CreateTask = () => {
     const [answer2, setAnswer2] = useState()
     const [answer3, setAnswer3] = useState()
 
-
     const createTask = async () => {
-        const db = firebase.firestore()
-        await db.collection('tasks').add({
+        await firebase.firestore().collection('tasks').add({
             theme: theme,
             title: title,
             tags: tags,
@@ -24,6 +23,7 @@ const CreateTask = () => {
             answer2: answer2,
             answer3: answer3
         })
+        setTheme('')
         setTitle('')
         setTags('')
         setTask('')
@@ -32,37 +32,15 @@ const CreateTask = () => {
         setAnswer3('')
     }
 
+
     return (
         <div className="container">
             <header className="taskHeader">
                 <Form>
-                    {['radio'].map((type) => (
-                        <div id="radios" key={`inline-${type}`} className="justify-content-center d-flex mt-5">
-                            <Form.Check onSelect={event => console.log(event.target.prototype.label)}
-                                inline
-                                label="Geometry"
-                                name="group1"
-                                type={type}
-                                id={`r1`}
-                            />
-                            <Form.Check
-                                inline
-                                label="Logic"
-                                name="group1"
-                                type={type}
-                                id={`r2`}
-                            />
-                            <Form.Check
-                                inline
-                                label="Maths"
-                                value="Maths"
-                                name="group1"
-                                type={type}
-                                id={`r3`}
-                            />
-                        </div>
-                    ))}
                     <Row className="mt-5">
+                        <Col>
+                            <Form.Control placeholder="Theme" value={theme} onChange={event => setTheme(event.target.value)}/>
+                        </Col>
                         <Col>
                             <Form.Control placeholder="Title" value={title} onChange={event => setTitle(event.target.value)}/>
                         </Col>
