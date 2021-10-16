@@ -9,17 +9,16 @@
     border-radius: 50px;
 }
 
-.title {
-    justify-content: center;
-}
-
 span {
     display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
 }
 
 li{
     padding: 20px;
     background: #f6f6f6;
+    font-family: 'Work Sans', sans-serif;
     font-size: 20px;
     color: #555;
     border: 1px solid #e6e6e6;
@@ -27,19 +26,24 @@ li{
     display: inline-block;
     margin: 10px;
 }
+
 li span:nth-child(4){
     padding: 20px;
     background: #C1E9FF;
-    font-size: 20px;
-    color: #555;
     border: 1px solid #e6e6e6;
-    display: block;
     margin-top: 10px;
 
 }
+
 li span:nth-child(1){
+    justify-content: center;
     border-bottom: 1px solid;
 }
+
+
+
+
+
 
 
 
