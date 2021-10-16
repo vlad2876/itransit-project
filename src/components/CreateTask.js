@@ -24,6 +24,7 @@ const CreateTask = () => {
         setAnswer3('')
     }
 
+
     const createTask = async () => {
         await db.collection('tasks').add({
             theme: theme,
@@ -33,14 +34,9 @@ const CreateTask = () => {
             answer1: answer1,
             answer2: answer2,
             answer3: answer3
-        }).then(function (docRef) {
-            console.log(docRef.id)
-        }).catch(function (error) {
-            console.log(error)
         })
         clearFields()
     }
-
 
     return (
         <div className="container">

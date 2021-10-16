@@ -1,25 +1,45 @@
 import React from 'react';
-import firebase from "firebase/compat";
+import firebase from "../config/firebase-config";
 
 
 const HomePage = () => {
+    let db = firebase.firestore();
 
-    const tasks = []
+    const taskList = document.querySelector('#task-list');
 
-    firebase.firestore().collection('tasks').get().then((snapshot) => {
+    function renderTask(doc) {
+        let li = document.createElement('li');
+        let theme = document.createElement('span');
+        let title = document.createElement('span');
+        let tags = document.createElement('span');
+        let task = document.createElement('span');
+
+        li.setAttribute('data-id', doc.id);
+        theme.textContent = doc.data().theme;
+        title.textContent = doc.data().title;
+        tags.textContent = doc.data().tags;
+        task.textContent = doc.data().task;
+
+        li.appendChild(theme);
+        li.appendChild(title);
+        li.appendChild(tags);
+        li.appendChild(task);
+
+        taskList.appendChild(li);
+
+
+    }
+
+    db.collection('tasks').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
-            for (let i = 0; i < 2; i++) {
-                tasks [i] = {
-                    themeValue: doc.data().theme,
-                    titleValue: doc.data().title,
-                    tagsValue: doc.data().tags,
-                    taskValue: doc.data().task
-                }
-            }
+            renderTask(doc)
         })
     })
+
     return (
-        <div></div>
+        <div>
+            <ul id="task-list"></ul>
+        </div>
     );
 };
 
