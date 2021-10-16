@@ -25,12 +25,9 @@ const HomePage = () => {
             li.appendChild(tags);
             li.appendChild(task);
 
+            taskList.appendChild(li);
 
     }
-
-
-
-
 
     db.collection('tasks').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
