@@ -3,7 +3,7 @@ import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Redirect} from "react-router-dom";
 import {HOMEPAGE_ROUTE} from "../utils/consts";
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import {Table, Thead, Tbody, Tr, Th, Td} from 'react-super-responsive-table'
 import firebase from "../config/firebase-config";
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
@@ -57,7 +57,7 @@ const Profile = () => {
                     <img className="avatar" src={user.photoURL}/>
                     <h3 className="ms-3">{user.displayName}</h3>
                 </div>
-                <Table className="m-5">
+                <Table className="mt-5">
                     <Thead>
                         <Tr>
                             <Th>Theme</Th>

@@ -15,9 +15,9 @@ const HomePage = () => {
         let task = document.createElement('span');
 
         li.setAttribute('data-id', doc.id);
-        theme.textContent = doc.data().theme;
+        theme.textContent = ('Theme: ' + doc.data().theme);
         title.textContent = doc.data().title;
-        tags.textContent = doc.data().tags;
+        tags.textContent = ('#' + doc.data().tags);
         task.textContent = doc.data().task;
         theme.className = ""
 
