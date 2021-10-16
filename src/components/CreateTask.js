@@ -65,15 +65,15 @@ const CreateTask = () => {
                     </Row>
                     <Row className="mt-5">
                         <Col>
-                            <Form.Control placeholder="Possible answer 1"
+                            <Form.Control placeholder="Answer 1"
                                           value={answer1} onChange={event => setAnswer1(event.target.value)}/>
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Possible answer 2"
+                            <Form.Control placeholder="Answer 2"
                                           value={answer2} onChange={event => setAnswer2(event.target.value)}/>
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Possible answer 3"
+                            <Form.Control placeholder="Answer 3"
                                           value={answer3} onChange={event => setAnswer3(event.target.value)}/>
                         </Col>
                     </Row>

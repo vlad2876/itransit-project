@@ -19,8 +19,9 @@ const HomePage = () => {
         title.textContent = doc.data().title;
         tags.textContent = doc.data().tags;
         task.textContent = doc.data().task;
-        theme.className = "taskContent"
-        tags.className = "taskContent"
+        theme.className = ""
+
+        title.className = "title"
 
         li.appendChild(title);
         li.appendChild(theme);
