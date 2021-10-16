@@ -20,15 +20,17 @@ const HomePage = () => {
         tags.textContent = doc.data().tags;
         task.textContent = doc.data().task;
 
-        li.appendChild(theme);
-        li.appendChild(title);
-        li.appendChild(tags);
-        li.appendChild(task);
-
-        taskList.appendChild(li);
+            li.appendChild(theme);
+            li.appendChild(title);
+            li.appendChild(tags);
+            li.appendChild(task);
 
 
     }
+
+
+
+
 
     db.collection('tasks').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
