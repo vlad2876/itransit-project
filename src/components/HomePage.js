@@ -19,13 +19,14 @@ const HomePage = () => {
         title.textContent = doc.data().title;
         tags.textContent = doc.data().tags;
         task.textContent = doc.data().task;
+        title.className = 'title'
 
-            li.appendChild(theme);
-            li.appendChild(title);
-            li.appendChild(tags);
-            li.appendChild(task);
+        li.appendChild(title);
+        li.appendChild(theme);
+        li.appendChild(tags);
+        li.appendChild(task);
 
-            taskList.appendChild(li);
+        taskList.appendChild(li);
 
     }
 
@@ -36,7 +37,7 @@ const HomePage = () => {
     })
 
     return (
-        <div>
+        <div className="content">
             <ul id="task-list"></ul>
         </div>
     );
