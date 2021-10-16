@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {Table} from "react-bootstrap";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Redirect} from "react-router-dom";
 import {HOMEPAGE_ROUTE} from "../utils/consts";
-import {Tbody, Td, Th, Thead, Tr} from "react-super-responsive-table";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import firebase from "../config/firebase-config";
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 const Profile = () => {
     const {auth} = useContext(Context)
@@ -16,13 +16,13 @@ const Profile = () => {
 
     function addToTaskList(doc) {
         let Tr = document.createElement('Tr');
-        let theme = document.createElement('Th');
-        let title = document.createElement('Th');
-        let tags = document.createElement('Th');
-        let task = document.createElement('Th');
-        let answer1 = document.createElement('Th');
-        let answer2 = document.createElement('Th');
-        let answer3 = document.createElement('Th');
+        let theme = document.createElement('Td');
+        let title = document.createElement('Td');
+        let tags = document.createElement('Td');
+        let task = document.createElement('Td');
+        let answer1 = document.createElement('Td');
+        let answer2 = document.createElement('Td');
+        let answer3 = document.createElement('Td');
         Tr.setAttribute('data-id', doc.id);
         theme.textContent = doc.data().theme;
         title.textContent = doc.data().title;
@@ -57,7 +57,7 @@ const Profile = () => {
                     <img className="avatar" src={user.photoURL}/>
                     <h3 className="ms-3">{user.displayName}</h3>
                 </div>
-                <Table>
+                <Table className="m-5">
                     <Thead>
                         <Tr>
                             <Th>Theme</Th>
