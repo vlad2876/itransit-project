@@ -4,6 +4,7 @@ import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Redirect} from "react-router-dom";
 import {HOMEPAGE_ROUTE} from "../utils/consts";
+import {Tbody, Td, Th, Thead, Tr} from "react-super-responsive-table";
 
 const Profile = () => {
 
@@ -17,50 +18,31 @@ const Profile = () => {
                     <img className="avatar" src={user.photoURL}/>
                     <h3 className="ms-3">{user.displayName}</h3>
                 </div>
-                <Table striped bordered hover className="w-50 mt-4">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Theme</th>
-                        <th>Title</th>
-                        <th>Task</th>
-                        <th>Tags</th>
-                        <th>Answer 1</th>
-                        <th>Answer 2</th>
-                        <th>Answer 3</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td colSpan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    </tbody>
+                <Table>
+                    <Thead>
+                        <Tr>
+                            <Th>Event</Th>
+                            <Th>Date</Th>
+                            <Th>Location</Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        <Tr>
+                            <Td>Tablescon</Td>
+                            <Td>9 April 2019</Td>
+                            <Td>East Annex</Td>
+                        </Tr>
+                        <Tr>
+                            <Td>Capstone Data</Td>
+                            <Td>19 May 2019</Td>
+                            <Td>205 Gorgas</Td>
+                        </Tr>
+                        <Tr>
+                            <Td>Tuscaloosa D3</Td>
+                            <Td>29 June 2019</Td>
+                            <Td>Github</Td>
+                        </Tr>
+                    </Tbody>
                 </Table>
             </div>
 
