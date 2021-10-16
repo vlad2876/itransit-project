@@ -23,6 +23,8 @@ const Profile = () => {
         let answer1 = document.createElement('Td');
         let answer2 = document.createElement('Td');
         let answer3 = document.createElement('Td');
+        let cross = document.createElement('div');
+
         Tr.setAttribute('data-id', doc.id);
         theme.textContent = doc.data().theme;
         title.textContent = doc.data().title;
@@ -31,6 +33,8 @@ const Profile = () => {
         answer1.textContent = doc.data().answer1;
         answer2.textContent = doc.data().answer2;
         answer3.textContent = doc.data().answer3;
+        cross.textContent = 'x';
+        cross.className = "deleteButton"
 
         Tr.appendChild(title);
         Tr.appendChild(theme);
@@ -39,6 +43,12 @@ const Profile = () => {
         Tr.appendChild(answer1);
         Tr.appendChild(answer2);
         Tr.appendChild(answer3);
+        Tr.appendChild(cross);
+        cross.addEventListener('click', (e) =>{
+            e.stopPropagation();
+            let id = e.target.parentElement.getAttribute('data-id');
+            db.collection('tasks').doc(id).delete();
+        })
 
         taskTable.appendChild(Tr);
     }

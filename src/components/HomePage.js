@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from "../config/firebase-config";
+import {Container} from "react-bootstrap";
 
 
 const HomePage = () => {
