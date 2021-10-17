@@ -1,16 +1,14 @@
 import React, {useContext} from 'react';
 import firebase from "../config/firebase-config";
-import {Spinner, Table} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
-import {Redirect} from "react-router-dom";
-import {HOMEPAGE_ROUTE} from "../utils/consts";
+
 
 
 const TableItem = () => {
     const {auth} = useContext(Context)
     const [user] = useAuthState(auth)
-
     let db = firebase.firestore();
 
     const taskTable = document.querySelector('#task-table');
@@ -53,13 +51,19 @@ const TableItem = () => {
 
         taskTable?.appendChild(tr)
     }
-if (user) {
-    db.collection('tasks').where('username', '==', user.displayName).get().then((snapshot) => {
-        snapshot.docs.forEach(doc => {
-            addToTaskList(doc)
-        })
-    })
-}
+
+        db.collection('tasks').where('username', '==', user.displayName)
+            .onSnapshot(snapshot => {
+                let changes = snapshot.docChanges()
+                changes.forEach(change => {
+                    if (change.type === 'added') {
+                        addToTaskList(change.doc)
+                    } else if (change.type === 'removed') {
+                        let tr = taskTable?.querySelector('[data-id=' + change.doc.id + ']')
+                        taskTable?.removeChild(tr)
+                    }
+                })
+            })
     return (
         <Table className="w-50 mt-3" striped bordered responsive>
             <thead>

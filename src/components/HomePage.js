@@ -1,9 +1,9 @@
 import React from 'react';
 import firebase from "../config/firebase-config";
-import {Container} from "react-bootstrap";
 
 
 const HomePage = () => {
+
     let db = firebase.firestore();
 
     const taskList = document.querySelector('#task-list');
@@ -30,12 +30,14 @@ const HomePage = () => {
         li.appendChild(task);
 
         taskList?.appendChild(li);
-
     }
 
-    db.collection('tasks').get().then((snapshot) => {
-        snapshot.docs.forEach(doc => {
-            renderTask(doc)
+    db.collection('tasks').onSnapshot(snapshot => {
+        let changes = snapshot.docChanges()
+        changes.forEach(change => {
+            if (change.type == 'added') {
+                renderTask(change.doc)
+            }
         })
     })
 
