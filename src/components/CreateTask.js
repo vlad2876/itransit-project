@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 import firebase from "../config/firebase-config";
+import {Context} from "../index";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 
 const CreateTask = () => {
+    const {auth} = useContext(Context)
+    const [user] = useAuthState(auth)
+
     const [theme, setTheme] = useState(),
         [title, setTitle] = useState(),
         [tags, setTags] = useState(),
@@ -27,6 +32,7 @@ const CreateTask = () => {
 
     const createTask = async () => {
         await db.collection('tasks').add({
+            username: user.displayName,
             theme: theme,
             title: title,
             tags: tags,

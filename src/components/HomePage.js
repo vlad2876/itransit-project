@@ -29,7 +29,7 @@ const HomePage = () => {
         li.appendChild(tags);
         li.appendChild(task);
 
-        taskList.appendChild(li);
+        taskList?.appendChild(li);
 
     }
 
