@@ -39,6 +39,10 @@ li span:nth-child(4){
 
 }
 
+li span:nth-child(5){
+    text-align: center;
+}
+
 li span:nth-child(1){
     justify-content: center;
     border-bottom: 1px solid;
@@ -63,7 +67,6 @@ li span:nth-child(1){
 .answerInput {
     margin-left: 10px;
 }
-
 
 
 

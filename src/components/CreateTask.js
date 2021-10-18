@@ -36,11 +36,11 @@ const CreateTask = () => {
             username: user.displayName,
             theme: theme === undefined ? 'None' : theme,
             title: title === undefined ? 'None' : title,
-            tags: tags === undefined ? 'None' : tags,
+            tags: tags === undefined ? 'none' : tags,
             task: task === undefined ? 'None' : task,
-            answer1: answer1 === undefined ? 'None' : answer1,
-            answer2: answer2 === undefined ? 'None' : answer2,
-            answer3: answer3 === undefined ? 'None' : answer3
+            answer1: answer1 === undefined ? 'none' : answer1,
+            answer2: answer2 === undefined ? null : answer2,
+            answer3: answer3 === undefined ? null : answer3
         })
         clearFields()
     }
@@ -68,7 +68,7 @@ const CreateTask = () => {
                         </Col>
                         <Col>
                             <Form.Control placeholder="Tags" value={tags}
-                                          onChange={event => setTags(event.target.value)}/>
+                                          onChange={event => setTags(event.target.value.toLowerCase())}/>
                         </Col>
 
                     </Row>
@@ -81,15 +81,15 @@ const CreateTask = () => {
                     <Row className="mt-5">
                         <Col>
                             <Form.Control placeholder="Answer 1"
-                                          value={answer1} onChange={event => setAnswer1(event.target.value)}/>
+                                          value={answer1} onChange={event => setAnswer1(event.target.value.toLowerCase())}/>
                         </Col>
                         <Col>
                             <Form.Control placeholder="Answer 2"
-                                          value={answer2} onChange={event => setAnswer2(event.target.value)}/>
+                                          value={answer2} onChange={event => setAnswer2(event.target.value.toLowerCase())}/>
                         </Col>
                         <Col>
                             <Form.Control placeholder="Answer 3"
-                                          value={answer3} onChange={event => setAnswer3(event.target.value)}/>
+                                          value={answer3} onChange={event => setAnswer3(event.target.value.toLowerCase())}/>
                         </Col>
                     </Row>
                 </Form>

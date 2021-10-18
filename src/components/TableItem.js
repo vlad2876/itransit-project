@@ -51,7 +51,6 @@ const TableItem = () => {
     }
 
 
-
     db.collection('tasks').where('username', '==', user.displayName)
         .onSnapshot(snapshot => {
             let changes = snapshot.docChanges()

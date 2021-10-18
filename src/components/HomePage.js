@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import firebase from "../config/firebase-config";
 
 const HomePage = () => {
@@ -27,6 +27,9 @@ const HomePage = () => {
         submit.className = "submitAnswer"
         answer.placeholder = "Your answer"
         answer.className = "answerInput"
+        submit.setAttribute('name', 'answerField')
+        answer.setAttribute('name', 'answerField')
+
         title.className = "title";
 
         li.appendChild(title);
@@ -36,7 +39,7 @@ const HomePage = () => {
         li.appendChild(answer);
         li.appendChild(submit)
         answer.addEventListener('input', function () {
-            answerValue = this.value
+            answerValue = this.value.toLowerCase()
         })
         submit.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -44,6 +47,12 @@ const HomePage = () => {
             db.collection('tasks').doc(id).get().then((snapshot) => {
                 if (answerValue === snapshot.data().answer1) {
                     alert("Correct decision!")
+                    answer.remove()
+                    submit.remove()
+                    let correct = document.createElement('span')
+                    correct.textContent = "Correct!"
+                    correct.className = "text-center"
+                    li.appendChild(correct)
                 } else if (answerValue === snapshot.data().answer2) {
                     alert("Correct decision!")
                 } else if (answerValue === snapshot.data().answer3) {
