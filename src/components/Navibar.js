@@ -12,6 +12,7 @@ export default function NaviBar() {
 
     const handleOnClick = async (provider) => {
         auth = await socialMediaAuth(provider)
+        window.location.reload()
     };
     return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -25,7 +26,7 @@ export default function NaviBar() {
                 </Navbar.Collapse>
                 <Nav>
                     {user ?
-                        <Button variant="danger" onClick={() => auth.signOut()} className="me-2">Logout</Button>
+                        <Button variant="danger" onClick={() => auth.signOut() + window.location.reload()} className="me-2">Logout</Button>
                         :
                         <>
                             <Button variant="primary" onClick={() => handleOnClick(facebookProvider)}
