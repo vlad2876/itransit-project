@@ -14,8 +14,8 @@ const HomePage = () => {
         let title = document.createElement('span');
         let tags = document.createElement('span');
         let task = document.createElement('span');
-        let answer = document.createElement('input')
-        let submit = document.createElement('button')
+        let answer = document.createElement('input');
+        let submit = document.createElement('button');
 
 
         li.setAttribute('data-id', doc.id);
@@ -27,15 +27,14 @@ const HomePage = () => {
         submit.className = "submitAnswer"
         answer.placeholder = "Your answer"
         answer.className = "answerInput"
-
-        title.className = "title";
+        title.className = "title"
 
         li.appendChild(title);
         li.appendChild(theme);
         li.appendChild(tags);
         li.appendChild(task);
         li.appendChild(answer);
-        li.appendChild(submit)
+        li.appendChild(submit);
 
         answer.addEventListener('input', function () {
             answerValue = this.value.toLowerCase()
@@ -69,7 +68,6 @@ const HomePage = () => {
                 }
             })
         })
-
         taskList?.appendChild(li);
     }
 
