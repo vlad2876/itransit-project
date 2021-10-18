@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
 import firebase from "../config/firebase-config";
-import {Table} from "react-bootstrap";
+import {Spinner, Table} from "react-bootstrap";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
-
 
 
 const TableItem = () => {
@@ -12,7 +11,6 @@ const TableItem = () => {
     let db = firebase.firestore();
 
     const taskTable = document.querySelector('#task-table');
-
 
     function addToTaskList(doc) {
         let tr = document.createElement('tr');
@@ -52,18 +50,21 @@ const TableItem = () => {
         taskTable?.appendChild(tr)
     }
 
-        db.collection('tasks').where('username', '==', user.displayName)
-            .onSnapshot(snapshot => {
-                let changes = snapshot.docChanges()
-                changes.forEach(change => {
-                    if (change.type === 'added') {
-                        addToTaskList(change.doc)
-                    } else if (change.type === 'removed') {
-                        let tr = taskTable?.querySelector('[data-id=' + change.doc.id + ']')
-                        taskTable?.removeChild(tr)
-                    }
-                })
+
+
+    db.collection('tasks').where('username', '==', user.displayName)
+        .onSnapshot(snapshot => {
+            let changes = snapshot.docChanges()
+            changes.forEach(change => {
+                if (change.type === 'added') {
+                    addToTaskList(change.doc)
+                } else if (change.type === 'removed') {
+                    let tr = taskTable?.querySelector('[data-id=' + change.doc.id + ']')
+                    taskTable?.removeChild(tr)
+                }
             })
+        })
+
     return (
         <Table className="w-50 mt-3" striped bordered responsive>
             <thead>

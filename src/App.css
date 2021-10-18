@@ -12,8 +12,6 @@
 span {
     margin: 10px;
     display: flex;
-    box-sizing: border-box;
-    justify-content: space-between;
 }
 
 li{
@@ -56,6 +54,15 @@ li span:nth-child(1){
     width: 40px;
 }
 
+.submitAnswer {
+    background: limegreen;
+    border-radius: 10px;
+    margin-left: 22px;
+}
+
+.answerInput {
+    margin-left: 10px;
+}
 
 
 

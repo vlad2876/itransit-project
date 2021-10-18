@@ -3,6 +3,7 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import firebase from "../config/firebase-config";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
+import Select from "react-select";
 
 
 const CreateTask = () => {
@@ -20,7 +21,7 @@ const CreateTask = () => {
 
 
     function clearFields() {
-        setTheme('')
+        setTheme(undefined)
         setTitle('')
         setTags('')
         setTask('')
@@ -33,15 +34,19 @@ const CreateTask = () => {
     const createTask = async () => {
         await db.collection('tasks').add({
             username: user.displayName,
-            theme: theme,
-            title: title,
-            tags: tags,
-            task: task,
-            answer1: answer1,
-            answer2: answer2,
-            answer3: answer3
+            theme: theme === undefined ? 'None' : theme,
+            title: title === undefined ? 'None' : title,
+            tags: tags === undefined ? 'None' : tags,
+            task: task === undefined ? 'None' : task,
+            answer1: answer1 === undefined ? 'None' : answer1,
+            answer2: answer2 === undefined ? 'None' : answer2,
+            answer3: answer3 === undefined ? 'None' : answer3
         })
         clearFields()
+    }
+
+    const selectData = (e) => {
+        setTheme(e.target.value)
     }
 
     return (
@@ -50,8 +55,12 @@ const CreateTask = () => {
                 <Form>
                     <Row className="mt-5">
                         <Col>
-                            <Form.Control placeholder="Theme" value={theme}
-                                          onChange={event => setTheme(event.target.value)}/>
+                            <select className="form-select" onChange={selectData}>
+                                <option selected value="None">Select theme...</option>
+                                <option value="Maths">Maths</option>
+                                <option value="Logic">Logic</option>
+                                <option value="Geometry">Geometry</option>
+                            </select>
                         </Col>
                         <Col>
                             <Form.Control placeholder="Title" value={title}
