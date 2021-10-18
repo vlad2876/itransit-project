@@ -3,7 +3,6 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import firebase from "../config/firebase-config";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
-import Select from "react-select";
 
 
 const CreateTask = () => {
@@ -21,7 +20,6 @@ const CreateTask = () => {
 
 
     function clearFields() {
-        setTheme(undefined)
         setTitle('')
         setTags('')
         setTask('')

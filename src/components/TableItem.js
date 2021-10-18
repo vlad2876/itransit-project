@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import firebase from "../config/firebase-config";
-import {Spinner, Table} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import {Context} from "../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 
@@ -49,7 +49,6 @@ const TableItem = () => {
 
         taskTable?.appendChild(tr)
     }
-
 
     db.collection('tasks').where('username', '==', user.displayName)
         .onSnapshot(snapshot => {

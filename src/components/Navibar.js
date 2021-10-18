@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Navbar, Nav, Button, Container} from "react-bootstrap";
+import {Navbar, Nav, Button} from "react-bootstrap";
 import {CREATE_TASK_ROUTE, HOMEPAGE_ROUTE, PROFILE_ROUTE} from "../utils/consts";
 import {facebookProvider, googleProvider} from "../config/authMethods";
 import socialMediaAuth from "../service/auth";

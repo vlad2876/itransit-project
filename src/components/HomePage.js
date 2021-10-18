@@ -27,8 +27,6 @@ const HomePage = () => {
         submit.className = "submitAnswer"
         answer.placeholder = "Your answer"
         answer.className = "answerInput"
-        submit.setAttribute('name', 'answerField')
-        answer.setAttribute('name', 'answerField')
 
         title.className = "title";
 
@@ -38,9 +36,11 @@ const HomePage = () => {
         li.appendChild(task);
         li.appendChild(answer);
         li.appendChild(submit)
+
         answer.addEventListener('input', function () {
             answerValue = this.value.toLowerCase()
         })
+
         submit.addEventListener('click', (e) => {
             e.stopPropagation();
             let id = e.target.parentElement.getAttribute('data-id');
@@ -51,12 +51,19 @@ const HomePage = () => {
                     submit.remove()
                     let correct = document.createElement('span')
                     correct.textContent = "Correct!"
-                    correct.className = "text-center"
                     li.appendChild(correct)
                 } else if (answerValue === snapshot.data().answer2) {
                     alert("Correct decision!")
+                    answer.remove()
+                    submit.remove()
+                    let correct = document.createElement('span')
+                    correct.textContent = "Correct!"
                 } else if (answerValue === snapshot.data().answer3) {
                     alert("Correct decision!")
+                    answer.remove()
+                    submit.remove()
+                    let correct = document.createElement('span')
+                    correct.textContent = "Correct!"
                 } else {
                     alert("Wrong decision!")
                 }
